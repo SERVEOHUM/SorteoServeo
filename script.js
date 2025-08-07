@@ -78,7 +78,7 @@ function lanzarConfeti() {
         });
     }, 250);
 }
-.gift-highlight {
+gift-highlight {
     display: inline-block;
     margin-top: 10px;
     font-size: 1.6em;
