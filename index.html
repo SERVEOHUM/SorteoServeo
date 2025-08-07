@@ -1,22 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Sorteo de Regalos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Tu regalo Serveo</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Sorteo de Regalos</h1>
-        <input type="text" id="employeeId" placeholder="Introduce tu número de empleado">
-        <button onclick="revealGift()">Ver mi regalo</button>
-        <div id="box" class="box hidden">
+    <main class="container">
+        <header class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Serveo_logo.svg/2560px-Serveo_logo.svg.png" alt="Serveo Logo" class="logo">
+            <h1 class="title">Descubre tu regalo 🎁</h1>
+            <p class="subtitle">Introduce tu número de empleado para abrir tu caja sorpresa</p>
+        </header>
+
+        <section class="input-area">
+            <input type="text" id="employeeId" placeholder="Ejemplo: 4011524">
+            <button onclick="revealGift()">Mostrar regalo</button>
+        </section>
+
+        <section id="box" class="box hidden">
             <div class="lid"></div>
             <div class="gift">🎁</div>
-        </div>
-        <div id="result" class="result hidden"></div>
-    </div>
+        </section>
+
+        <section id="result" class="result hidden"></section>
+
+        <footer class="footer">
+            <p>© Serveo 2025 – Sorteo interno. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
