@@ -12,38 +12,32 @@ function revealGift() {
     const resultDiv = document.getElementById("result");
     const box = document.getElementById("box");
 
+    // Ocultar resultado anterior y caja
     resultDiv.classList.add("hidden");
     box.classList.add("hidden");
 
-    // Verifica si el número de empleado es válido
+    // Validación
     if (!input || !asignaciones[input]) {
-        resultDiv.innerHTML = "❌ <strong>Número de empleado no encontrado.</strong>";
+        resultDiv.textContent = "❌ Número de empleado no encontrado.";
         resultDiv.classList.remove("hidden");
         return;
     }
 
-    // Mostrar animación de caja
+    // Mostrar caja animada
     box.classList.remove("hidden");
 
-    // Espera 2 segundos y muestra el resultado
     setTimeout(() => {
         box.classList.add("hidden");
-        resultDiv.innerHTML = `
-            <div class="gift-highlight-container">
-                🎉 <strong>Te ha tocado:</strong><br>
-                <span class="gift-highlight">${asignaciones[input]}</span>
-            </div>`;
+        resultDiv.innerHTML = `🎁 <strong>Te ha tocado:</strong><br><span class="gift-highlight">${asignaciones[input]}</span>`;
         resultDiv.classList.remove("hidden");
-
-        // Lanzar confeti
         lanzarConfeti();
     }, 2000);
 }
 
-// Función para lanzar confeti en toda la pantalla
+// Función para lanzar confeti
 function lanzarConfeti() {
     if (typeof confetti !== "function") {
-        console.warn("Confetti no cargado correctamente.");
+        console.warn("Confetti no está cargado.");
         return;
     }
 
@@ -60,8 +54,7 @@ function lanzarConfeti() {
         const timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
-            clearInterval(interval);
-            return;
+            return clearInterval(interval);
         }
 
         const particleCount = 40 * (timeLeft / duration);
