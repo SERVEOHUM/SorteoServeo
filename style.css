@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+  align-items: center;
     padding-top: 60px;
 }
 
@@ -100,11 +100,20 @@ button:hover {
 }
 
 .result {
-    font-size: 20px;
-    margin-top: 25px;
-    font-weight: bold;
+    display: inline-block;
+    background: #fff;
+    padding: 20px 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-size: 1.4em;
+    font-weight: 600;
     color: #FF4E00;
+    animation: fadeIn 0.8s ease-in-out;
+    border: 2px solid #FF4E00;
+    line-height: 1.4em;
 }
+
 
 .hidden {
     display: none;
@@ -120,4 +129,8 @@ button:hover {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
