@@ -28,7 +28,7 @@ function revealGift() {
     // Espera 2 segundos y muestra el resultado
     setTimeout(() => {
         box.classList.add("hidden");
-        resultDiv.textContent = "🎉 Te ha tocado: " + asignaciones[input];
+        resultDiv.innerHTML = `🎁 <strong>Te ha tocado:</strong><br><span class="gift-highlight">${asignaciones[input]}</span>`;
         resultDiv.classList.remove("hidden");
 
         // Lanzar confeti
@@ -78,3 +78,22 @@ function lanzarConfeti() {
         });
     }, 250);
 }
+.gift-highlight {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #FF4E00;
+    background-color: #fff8f3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px dashed #FF4E00;
+    animation: pop 0.5s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
