@@ -125,6 +125,25 @@ button:hover {
     margin-top: 40px;
     text-align: center;
 }
+.gift-highlight {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #FF4E00;
+    background-color: #fff8f3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px dashed #FF4E00;
+    animation: pop 0.5s ease-in-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
