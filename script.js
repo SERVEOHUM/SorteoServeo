@@ -17,18 +17,22 @@ function revealGift() {
 
     // Verifica si el número de empleado es válido
     if (!input || !asignaciones[input]) {
-        resultDiv.textContent = "❌ Número de empleado no encontrado.";
+        resultDiv.innerHTML = "❌ <strong>Número de empleado no encontrado.</strong>";
         resultDiv.classList.remove("hidden");
         return;
     }
 
-    // Mostrar caja sorpresa
+    // Mostrar animación de caja
     box.classList.remove("hidden");
 
     // Espera 2 segundos y muestra el resultado
     setTimeout(() => {
         box.classList.add("hidden");
-        resultDiv.innerHTML = `🎁 <strong>Te ha tocado:</strong><br><span class="gift-highlight">${asignaciones[input]}</span>`;
+        resultDiv.innerHTML = `
+            <div class="gift-highlight-container">
+                🎉 <strong>Te ha tocado:</strong><br>
+                <span class="gift-highlight">${asignaciones[input]}</span>
+            </div>`;
         resultDiv.classList.remove("hidden");
 
         // Lanzar confeti
@@ -36,7 +40,7 @@ function revealGift() {
     }, 2000);
 }
 
-// Confeti profesional
+// Función para lanzar confeti en toda la pantalla
 function lanzarConfeti() {
     if (typeof confetti !== "function") {
         console.warn("Confetti no cargado correctamente.");
@@ -56,12 +60,12 @@ function lanzarConfeti() {
         const timeLeft = animationEnd - Date.now();
 
         if (timeLeft <= 0) {
-            return clearInterval(interval);
+            clearInterval(interval);
+            return;
         }
 
         const particleCount = 40 * (timeLeft / duration);
 
-        // Lado izquierdo
         confetti({
             ...defaults,
             particleCount,
@@ -69,7 +73,6 @@ function lanzarConfeti() {
             colors: ['#FF4E00', '#FFD700', '#FFFFFF']
         });
 
-        // Lado derecho
         confetti({
             ...defaults,
             particleCount,
@@ -78,22 +81,3 @@ function lanzarConfeti() {
         });
     }, 250);
 }
-gift-highlight {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #FF4E00;
-    background-color: #fff8f3;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px dashed #FF4E00;
-    animation: pop 0.5s ease-in-out;
-}
-
-@keyframes pop {
-    0% { transform: scale(0.7); opacity: 0; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
-}
-
